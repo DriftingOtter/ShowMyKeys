@@ -1,7 +1,9 @@
+
+# Imports
 from tkinter import *
 import ctypes
 
-
+# Fuctionality binding for the keys
 def key_pressed(event):
 
     btn.config(state=DISABLED)
@@ -197,5 +199,6 @@ for key in keys_row5:
     btn.pack(side="left")
 
 
+# if name is main start point 
 if __name__ == "__main__":
     app.mainloop()
