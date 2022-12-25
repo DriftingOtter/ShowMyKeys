@@ -4,11 +4,12 @@
 from tkinter import *
 
 app = Tk()
-app.geometry("1000x1000")
+app.geometry("1920x1080")
 app.title("ShowMyKeys")
 app.config(background="#222831")
 
-KeyboardDisplay = Frame(
+
+KeyboardCase = Frame(
 
         master = app,
 
@@ -16,47 +17,64 @@ KeyboardDisplay = Frame(
 
         bg="black",
 
+        height=500,
+
+        width=1000
+
 )
-KeyboardDisplay.pack(anchor=CENTER, )
+KeyboardCase.pack(pady=300)
 
-class fullSizeKeyboard():
-        
-        qKey = Button(
+key_row1 = Frame(
 
-                master=KeyboardDisplay,
+        master=KeyboardCase,
 
-                width=10,
+        width=1000,
+   
+)
+key_row1.pack(side=TOP)
 
-                height=5,
+key_row2 = Frame(
 
-                bg="White",
+        master=KeyboardCase,
 
-                relief=RAISED,
+        width=1000,
+   
+)
+key_row2.pack(anchor=CENTER)
 
-                borderwidth=5,
+key_row3 = Frame(
 
-                text="1"
-        )
-        qKey.pack(side=LEFT)
+        master=KeyboardCase,
 
-        wKey = Button(
+        width=1000,
+   
+)
+key_row3.pack(anchor=CENTER)
 
-                master=KeyboardDisplay,
+key_row4 = Frame(
 
-                width=10,
+        master=KeyboardCase,
 
-                height=5,
+        width=1000,
+   
+)
+key_row4.pack(side=BOTTOM)
 
-                bg="Whitr",
+# Create a list of keys to display on the keyboard
+keys_row1 = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=',]
+keys_row2 = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', '\\']
+keys_row3 = ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';', '\'']
+keys_row4 = ['Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/']
 
-                relief=RAISED,
-
-                borderwidth=5,
-
-                text="2",
-
-        )
-        wKey.pack(side=RIGHT)
+# Create a button for each key and add it to the keyboard frame
+for key in keys_row1:
+    Button(key_row1, text=key, border=10, relief=RAISED, padx=2, width=10, height=5).pack(side='left')
+for key in keys_row2:
+    Button(key_row2, text=key, border=10, relief=RAISED, padx=2, width=10, height=5).pack(side='left')
+for key in keys_row3:
+    Button(key_row3, text=key, border=10, relief=RAISED, padx=2, width=10, height=5).pack(side='left')
+for key in keys_row4:
+    Button(key_row4, text=key, border=10, relief=RAISED, padx=2, width=10, height=5).pack(side='left')
 
 
 if __name__ == "__main__":
