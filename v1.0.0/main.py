@@ -1,15 +1,26 @@
-
 # Imports
 from tkinter import *
 import ctypes
+import keyboard
 
-# Fuctionality binding for the keys
-def key_pressed(event):
+# Define a function to be called when a key is pressed
+def key_press(event):
+    
+    for btn in app.winfo_children():
 
-    btn.config(state=DISABLED)
-    btn.after(100, None)
-    btn.config(state=ACTIVE)
+        if isinstance(btn, Button):
 
+            if btn['text'].strip() == event.char or (btn['text'].strip()).lower() == event.char:
+
+                btn.config(bg="#7971EA")
+                btn['relief'] = 'sunken'
+
+# Define a function to be called when a key is released
+def key_release(event):
+    for btn in app.winfo_children():
+        if isinstance(btn, Button):
+            btn['relief'] = 'rasied'
+    
 
 # Tkinter Boiler Plate
 app = Tk()
@@ -60,7 +71,7 @@ key_row5.pack(side=BOTTOM)
 
 # Create a list of keys to display on the keyboard
 keys_row1 = [
-    "        `        ",
+    "        `      ",
     "       1       ",
     "       2       ",
     "       3       ",
@@ -73,7 +84,7 @@ keys_row1 = [
     "       0       ",
     "       -       ",
     "       =       ",
-    "        Backspace         ",
+    "         Backspace           ",
 ]
 
 keys_row2 = [
@@ -148,7 +159,7 @@ for key in keys_row1:
         height=5,
         font=("Helvetica", 10, "bold"),
     )
-    btn.pack(side="left")
+    btn.pack(side="left")   
 
 for key in keys_row2:
     btn = Button(
@@ -198,7 +209,8 @@ for key in keys_row5:
     )
     btn.pack(side="left")
 
-
+app.bind("<Key>", key_press)
+app.bind("<KeyRelease>", key_release)
 # if name is main start point 
 if __name__ == "__main__":
     app.mainloop()
