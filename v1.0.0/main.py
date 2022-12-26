@@ -1,7 +1,4 @@
 # Imports
-import tkthread
-
-tkthread.patch()
 from tkinter import *
 import ctypes
 
