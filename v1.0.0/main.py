@@ -1,32 +1,190 @@
 # Imports
+import tkthread
+
+tkthread.patch()
 from tkinter import *
 import ctypes
-import keyboard
+import threading
+
 
 # Define a function to be called when a key is pressed
 def key_press(event):
-    
-    for btn in app.winfo_children():
+
+    for btn in key_row1.winfo_children():
 
         if isinstance(btn, Button):
 
-            if btn['text'].strip() == event.char or (btn['text'].strip()).lower() == event.char:
+            if ((str(btn["text"])).strip() == event.char) or (
+                (str(btn["text"])).strip() == event.keysym
+            ):
 
-                btn.config(bg="#7971EA")
-                btn['relief'] = 'sunken'
+                btn["relief"] = "sunken"
+
+            else:
+
+                pass
+
+            if ((str((btn["text"])).lower()).strip() == event.char) or (
+                (str((btn["text"])).lower()).strip() == event.keysym
+            ):
+
+                btn["relief"] = "sunken"
+            else:
+
+                pass
+
+    for btn in key_row2.winfo_children():
+
+        if isinstance(btn, Button):
+
+            if ((str(btn["text"])).strip() == event.char) or (
+                (str(btn["text"])).strip() == event.keysym
+            ):
+
+                btn["relief"] = "sunken"
+
+            else:
+
+                pass
+
+            if ((str((btn["text"])).lower()).strip() == event.char) or (
+                (str((btn["text"])).lower()).strip() == event.keysym
+            ):
+
+                btn["relief"] = "sunken"
+            else:
+
+                pass
+
+    for btn in key_row3.winfo_children():
+
+        if isinstance(btn, Button):
+
+            if ((str(btn["text"])).strip() == event.char) or (
+                (str(btn["text"])).strip() == event.keysym
+            ):
+
+                btn["relief"] = "sunken"
+
+            else:
+
+                pass
+
+            if ((str((btn["text"])).lower()).strip() == event.char) or (
+                (str((btn["text"])).lower()).strip() == event.keysym
+            ):
+
+                btn["relief"] = "sunken"
+            else:
+
+                pass
+
+    for btn in key_row4.winfo_children():
+
+        if isinstance(btn, Button):
+
+            if ((str(btn["text"])).strip() == event.char) or (
+                (str(btn["text"])).strip() == event.keysym
+            ):
+
+                btn["relief"] = "sunken"
+
+            else:
+
+                pass
+
+            if ((str((btn["text"])).lower()).strip() == event.char) or (
+                (str((btn["text"])).lower()).strip() == event.keysym
+            ):
+
+                btn["relief"] = "sunken"
+            else:
+
+                pass
+
+    for btn in key_row5.winfo_children():
+
+        if isinstance(btn, Button):
+
+            if ((str(btn["text"])).strip() == event.char) or (
+                (str(btn["text"])).strip() == event.keysym
+            ):
+
+                btn["relief"] = "sunken"
+
+            else:
+
+                pass
+
+            if ((str((btn["text"])).lower()).strip() == event.char) or (
+                (str((btn["text"])).lower()).strip() == event.keysym
+            ):
+
+                btn["relief"] = "sunken"
+            else:
+
+                pass
+
 
 # Define a function to be called when a key is released
 def key_release(event):
-    for btn in app.winfo_children():
+
+    for btn in key_row1.winfo_children():
+
         if isinstance(btn, Button):
-            btn['relief'] = 'rasied'
-    
+
+            btn["relief"] = "raised"
+
+        else:
+
+            pass
+
+    for btn in key_row2.winfo_children():
+
+        if isinstance(btn, Button):
+
+            btn["relief"] = "raised"
+
+        else:
+
+            pass
+
+    for btn in key_row3.winfo_children():
+
+        if isinstance(btn, Button):
+
+            btn["relief"] = "raised"
+
+        else:
+
+            pass
+
+    for btn in key_row4.winfo_children():
+
+        if isinstance(btn, Button):
+
+            btn["relief"] = "raised"
+
+        else:
+
+            pass
+
+    for btn in key_row5.winfo_children():
+
+        if isinstance(btn, Button):
+
+            btn["relief"] = "raised"
+
+        else:
+
+            pass
+
 
 # Tkinter Boiler Plate
 app = Tk()
 app.geometry("1920x1080")
 app.title("ShowMyKeys")
-app.config(background="#2C3333")
+app.config(background="#222831")
 
 # Allows Application To Render Based Upon Users Display DPI
 ctypes.windll.shcore.SetProcessDpiAwareness(True)
@@ -71,7 +229,7 @@ key_row5.pack(side=BOTTOM)
 
 # Create a list of keys to display on the keyboard
 keys_row1 = [
-    "        `      ",
+    "       `       ",
     "       1       ",
     "       2       ",
     "       3       ",
@@ -84,7 +242,7 @@ keys_row1 = [
     "       0       ",
     "       -       ",
     "       =       ",
-    "         Backspace           ",
+    "         BackSpace          ",
 ]
 
 keys_row2 = [
@@ -105,7 +263,7 @@ keys_row2 = [
 ]
 
 keys_row3 = [
-    "              Caps            ",
+    "         Caps_Lock       ",
     "       A       ",
     "       S       ",
     "       D       ",
@@ -117,11 +275,11 @@ keys_row3 = [
     "       L       ",
     "       ;       ",
     '       "       ',
-    "               Enter                ",
+    "               Return               ",
 ]
 
 keys_row4 = [
-    "                      Shift                     ",
+    "                     Shift_L                   ",
     "       Z       ",
     "       X       ",
     "       C       ",
@@ -132,19 +290,19 @@ keys_row4 = [
     "       ,       ",
     "       .       ",
     "       /       ",
-    "                     Shift                     ",
+    "                   Shift_R                  ",
 ]
 
 keys_row5 = [
-    "       Ctrl        ",
-    "       Win       ",
-    "       Alt       ",
-    "                                                                                   Space                                                                                   ",
-    "       Alt       ",
-    "   <   ",
-    "   ^   ",
-    "   v   ",
-    "   >   ",
+    "    Control_L     ",
+    "       Win_L     ",
+    "       Alt_L     ",
+    "                                                                     Space                                                                     ",
+    "       Alt_R     ",
+    "   Left   ",
+    "   Up   ",
+    "   Down   ",
+    "   Right   ",
 ]
 
 
@@ -159,7 +317,7 @@ for key in keys_row1:
         height=5,
         font=("Helvetica", 10, "bold"),
     )
-    btn.pack(side="left")   
+    btn.pack(side="left")
 
 for key in keys_row2:
     btn = Button(
@@ -211,6 +369,7 @@ for key in keys_row5:
 
 app.bind("<Key>", key_press)
 app.bind("<KeyRelease>", key_release)
-# if name is main start point 
+# if name is main start point
 if __name__ == "__main__":
     app.mainloop()
+    
