@@ -2,7 +2,6 @@
 from tkinter import *
 import ctypes
 
-
 # Define a function to be called when a key is pressed
 def key_press(event):
     def update_button_relief(button):
@@ -169,7 +168,7 @@ keys_row5 = [
 ]
 
 
-# Create a button for each key and add it to the keyboard frame
+# Create a button for each key and add it to rows var
 keys = [keys_row1, keys_row2, keys_row3, keys_row4, keys_row5]
 rows = [key_row1, key_row2, key_row3, key_row4, key_row5]
 
@@ -188,11 +187,14 @@ for i in range(len(keys)):
         )
         btn.pack(side="left")
 
-
+# Binds key_press and key_release to window of application
 app.bind("<Key>", key_press)
 app.bind("<KeyRelease>", key_release)
+
+# Disables resizing of window
 app.resizable(False,False)
+
+
 # if name is main start point
 if __name__ == "__main__":
     app.mainloop()
-
