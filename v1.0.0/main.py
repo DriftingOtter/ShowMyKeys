@@ -277,7 +277,7 @@ ctypes.windll.shcore.SetProcessDpiAwareness(True)
 keyboardCase = Frame(
     master=app, borderwidth=40, bg="#050505", height=500, width=1000, relief=GROOVE
 )
-keyboardCase.pack(pady=200)
+keyboardCase.pack(pady=250)
 
 # indivisual rows for key to be placed in
 key_row1 = Frame(
@@ -403,7 +403,7 @@ for key in keys_row1:
         border=10,
         relief=RAISED,
         padx=5,
-        height=5,
+        height=4,
         font=("Rubik Bold", 10),
         bg="#c4c1b9",
         takefocus=0
@@ -417,7 +417,7 @@ for key in keys_row2:
         border=10,
         relief=RAISED,
         padx=5,
-        height=5,
+        height=4,
         font=("Rubik Bold", 10),
         bg="#c4c1b9",
         takefocus=0
@@ -431,7 +431,7 @@ for key in keys_row3:
         border=10,
         relief=RAISED,
         padx=5,
-        height=5,
+        height=4,
         font=("Rubik Bold", 10),
         bg="#c4c1b9",
         takefocus=0
@@ -445,7 +445,7 @@ for key in keys_row4:
         border=10,
         relief=RAISED,
         padx=5,
-        height=5,
+        height=4,
         font=("Rubik Bold", 10),
         bg="#c4c1b9",
         takefocus=0
@@ -459,7 +459,7 @@ for key in keys_row5:
         border=10,
         relief=RAISED,
         padx=5,
-        height=5,
+        height=4,
         font=("Rubik Bold", 10),
         bg="#c4c1b9",
         takefocus=0
