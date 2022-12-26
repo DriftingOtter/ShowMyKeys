@@ -199,30 +199,35 @@ keyboardCase.pack(pady=200)
 key_row1 = Frame(
     master=keyboardCase,
     width=1000,
+    takefocus=0
 )
 key_row1.pack(side=TOP)
 
 key_row2 = Frame(
     master=keyboardCase,
     width=1000,
+    takefocus=0
 )
 key_row2.pack(anchor=CENTER)
 
 key_row3 = Frame(
     master=keyboardCase,
     width=1000,
+    takefocus=0
 )
 key_row3.pack(anchor=CENTER)
 
 key_row4 = Frame(
     master=keyboardCase,
     width=1000,
+    takefocus=0
 )
 key_row4.pack(anchor=CENTER)
 
 key_row5 = Frame(
     master=keyboardCase,
     width=1000,
+    takefocus=0
 )
 key_row5.pack(side=BOTTOM)
 
@@ -316,6 +321,7 @@ for key in keys_row1:
         padx=5,
         height=5,
         font=("Helvetica", 10, "bold"),
+        takefocus=0
     )
     btn.pack(side="left")
 
@@ -328,6 +334,7 @@ for key in keys_row2:
         padx=5,
         height=5,
         font=("Helvetica", 10, "bold"),
+        takefocus=0
     )
     btn.pack(side="left")
 
@@ -340,6 +347,7 @@ for key in keys_row3:
         padx=5,
         height=5,
         font=("Helvetica", 10, "bold"),
+        takefocus=0
     )
     btn.pack(side="left")
 
@@ -352,6 +360,7 @@ for key in keys_row4:
         padx=5,
         height=5,
         font=("Helvetica", 10, "bold"),
+        takefocus=0
     )
     btn.pack(side="left")
 
@@ -364,6 +373,7 @@ for key in keys_row5:
         padx=5,
         height=5,
         font=("Helvetica", 10, "bold"),
+        takefocus=0
     )
     btn.pack(side="left")
 
