@@ -170,75 +170,24 @@ keys_row5 = [
 
 
 # Create a button for each key and add it to the keyboard frame
-for key in keys_row1:
-    btn = Button(
-        key_row1,
-        text=key,
-        border=10,
-        relief=RAISED,
-        padx=5,
-        height=4,
-        font=("Rubik Bold", 10),
-        bg="#c4c1b9",
-        takefocus=0
-    )
-    btn.pack(side="left")
+keys = [keys_row1, keys_row2, keys_row3, keys_row4, keys_row5]
+rows = [key_row1, key_row2, key_row3, key_row4, key_row5]
 
-for key in keys_row2:
-    btn = Button(
-        key_row2,
-        text=key,
-        border=10,
-        relief=RAISED,
-        padx=5,
-        height=4,
-        font=("Rubik Bold", 10),
-        bg="#c4c1b9",
-        takefocus=0
-    )
-    btn.pack(side="left")
+for i in range(len(keys)):
+    for key in keys[i]:
+        btn = Button(
+            rows[i],
+            text=key,
+            border=10,
+            relief=RAISED,
+            padx=5,
+            height=4,
+            font=("Rubik Bold", 10),
+            bg="#c4c1b9",
+            takefocus=0
+        )
+        btn.pack(side="left")
 
-for key in keys_row3:
-    btn = Button(
-        key_row3,
-        text=key,
-        border=10,
-        relief=RAISED,
-        padx=5,
-        height=4,
-        font=("Rubik Bold", 10),
-        bg="#c4c1b9",
-        takefocus=0
-    )
-    btn.pack(side="left")
-
-for key in keys_row4:
-    btn = Button(
-        key_row4,
-        text=key,
-        border=10,
-        relief=RAISED,
-        padx=5,
-        height=4,
-        font=("Rubik Bold", 10),
-        bg="#c4c1b9",
-        takefocus=0
-    )
-    btn.pack(side="left")
-
-for key in keys_row5:
-    btn = Button(
-        key_row5,
-        text=key,
-        border=10,
-        relief=RAISED,
-        padx=5,
-        height=4,
-        font=("Rubik Bold", 10),
-        bg="#c4c1b9",
-        takefocus=0
-    )
-    btn.pack(side="left")
 
 app.bind("<Key>", key_press)
 app.bind("<KeyRelease>", key_release)
