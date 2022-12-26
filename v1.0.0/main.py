@@ -5,261 +5,33 @@ import ctypes
 
 # Define a function to be called when a key is pressed
 def key_press(event):
+    def update_button_relief(button):
+        if ((str(button["text"])).strip() == event.char) or (
+            (str(button["text"])).strip() == event.keysym
+        ) or ((str((button["text"])).lower()).strip() == event.char) or (
+            (str((button["text"])).lower()).strip() == event.keysym
+        ):
+            button["relief"] = "sunken"
 
-    for btn in key_row1.winfo_children():
-
-        if isinstance(btn, Button):
-
-            if ((str(btn["text"])).strip() == event.char) or (
-                (str(btn["text"])).strip() == event.keysym
-            ):
-
-                btn["relief"] = "sunken"
-
-            else:
-
-                pass
-
-            if ((str((btn["text"])).lower()).strip() == event.char) or (
-                (str((btn["text"])).lower()).strip() == event.keysym
-            ):
-
-                btn["relief"] = "sunken"
-            else:
-
-                pass
-
-    for btn in key_row2.winfo_children():
-
-        if isinstance(btn, Button):
-
-            if ((str(btn["text"])).strip() == event.char) or (
-                (str(btn["text"])).strip() == event.keysym
-            ):
-
-                btn["relief"] = "sunken"
-
-            else:
-
-                pass
-
-            if ((str((btn["text"])).lower()).strip() == event.char) or (
-                (str((btn["text"])).lower()).strip() == event.keysym
-            ):
-
-                btn["relief"] = "sunken"
-            else:
-
-                pass
-
-    for btn in key_row3.winfo_children():
-
-        if isinstance(btn, Button):
-
-            if ((str(btn["text"])).strip() == event.char) or (
-                (str(btn["text"])).strip() == event.keysym
-            ):
-
-                btn["relief"] = "sunken"
-
-            else:
-
-                pass
-
-            if ((str((btn["text"])).lower()).strip() == event.char) or (
-                (str((btn["text"])).lower()).strip() == event.keysym
-            ):
-
-                btn["relief"] = "sunken"
-            else:
-
-                pass
-
-    for btn in key_row4.winfo_children():
-
-        if isinstance(btn, Button):
-
-            if ((str(btn["text"])).strip() == event.char) or (
-                (str(btn["text"])).strip() == event.keysym
-            ):
-
-                btn["relief"] = "sunken"
-
-            else:
-
-                pass
-
-            if ((str((btn["text"])).lower()).strip() == event.char) or (
-                (str((btn["text"])).lower()).strip() == event.keysym
-            ):
-
-                btn["relief"] = "sunken"
-            else:
-
-                pass
-
-    for btn in key_row5.winfo_children():
-
-        if isinstance(btn, Button):
-
-            if ((str(btn["text"])).strip() == event.char) or (
-                (str(btn["text"])).strip() == event.keysym
-            ):
-
-                btn["relief"] = "sunken"
-
-            else:
-
-                pass
-
-            if ((str((btn["text"])).lower()).strip() == event.char) or (
-                (str((btn["text"])).lower()).strip() == event.keysym
-            ):
-
-                btn["relief"] = "sunken"
-            else:
-
-                pass
-
+    for row in [key_row1, key_row2, key_row3, key_row4, key_row5]:
+        for btn in row.winfo_children():
+            if isinstance(btn, Button):
+                update_button_relief(btn)
 
 # Define a function to be called when a key is released
 def key_release(event):
+    def update_button_relief(button):
+        if ((str(button["text"])).strip() == event.char) or (
+            (str(button["text"])).strip() == event.keysym
+        ) or ((str((button["text"])).lower()).strip() == event.char) or (
+            (str((button["text"])).lower()).strip() == event.keysym
+        ):
+            button["relief"] = "raised"
 
-    for btn in key_row1.winfo_children():
-
-        if isinstance(btn, Button):
-
-            if ((str(btn["text"])).strip() == event.char) or (
-                (str(btn["text"])).strip() == event.keysym
-            ):
-
-                btn["relief"] = "raised"
-
-            else:
-
-                pass
-
-            if ((str((btn["text"])).lower()).strip() == event.char) or (
-                (str((btn["text"])).lower()).strip() == event.keysym
-            ):
-
-                btn["relief"] = "raised"
-            else:
-
-                pass
-
-        else:
-
-            pass
-
-    for btn in key_row2.winfo_children():
-
-        if isinstance(btn, Button):
-
-            if ((str(btn["text"])).strip() == event.char) or (
-                (str(btn["text"])).strip() == event.keysym
-            ):
-
-                btn["relief"] = "raised"
-
-            else:
-
-                pass
-
-            if ((str((btn["text"])).lower()).strip() == event.char) or (
-                (str((btn["text"])).lower()).strip() == event.keysym
-            ):
-
-                btn["relief"] = "raised"
-            else:
-
-                pass
-            
-        else:
-
-            pass
-
-    for btn in key_row3.winfo_children():
-
-        if isinstance(btn, Button):
-
-            if ((str(btn["text"])).strip() == event.char) or (
-                (str(btn["text"])).strip() == event.keysym
-            ):
-
-                btn["relief"] = "raised"
-
-            else:
-
-                pass
-
-            if ((str((btn["text"])).lower()).strip() == event.char) or (
-                (str((btn["text"])).lower()).strip() == event.keysym
-            ):
-
-                btn["relief"] = "raised"
-            else:
-
-                pass
-            
-        else:
-
-            pass
-
-    for btn in key_row4.winfo_children():
-
-        if isinstance(btn, Button):
-
-            if ((str(btn["text"])).strip() == event.char) or (
-                (str(btn["text"])).strip() == event.keysym
-            ):
-
-                btn["relief"] = "raised"
-
-            else:
-
-                pass
-
-            if ((str((btn["text"])).lower()).strip() == event.char) or (
-                (str((btn["text"])).lower()).strip() == event.keysym
-            ):
-
-                btn["relief"] = "raised"
-            else:
-
-                pass
-            
-        else:
-
-            pass
-
-    for btn in key_row5.winfo_children():
-
-        if isinstance(btn, Button):
-
-            if ((str(btn["text"])).strip() == event.char) or (
-                (str(btn["text"])).strip() == event.keysym
-            ):
-
-                btn["relief"] = "raised"
-
-            else:
-
-                pass
-
-            if ((str((btn["text"])).lower()).strip() == event.char) or (
-                (str((btn["text"])).lower()).strip() == event.keysym
-            ):
-
-                btn["relief"] = "raised"
-            else:
-
-                pass
-            
-        else:
-
-            pass
-
+    for row in [key_row1, key_row2, key_row3, key_row4, key_row5]:
+        for btn in row.winfo_children():
+            if isinstance(btn, Button):
+                update_button_relief(btn)
 
 # Tkinter Boiler Plate
 app = Tk()
@@ -469,4 +241,4 @@ app.resizable(False,False)
 # if name is main start point
 if __name__ == "__main__":
     app.mainloop()
-    
+
