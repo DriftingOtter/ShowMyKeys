@@ -183,14 +183,14 @@ def key_release(event):
 app = Tk()
 app.geometry("1920x1080")
 app.title("ShowMyKeys")
-app.config(background="#222831")
+app.config(background="#9ea3af")
 
 # Allows Application To Render Based Upon Users Display DPI
 ctypes.windll.shcore.SetProcessDpiAwareness(True)
 
 # Makes frame that acts as a 'case' for the key to be displayed in
 keyboardCase = Frame(
-    master=app, borderwidth=40, bg="#181D31", height=500, width=1000, relief=GROOVE
+    master=app, borderwidth=40, bg="#050505", height=500, width=1000, relief=GROOVE
 )
 keyboardCase.pack(pady=200)
 
@@ -250,7 +250,7 @@ keys_row1 = [
 ]
 
 keys_row2 = [
-    "               Tab            ",
+    "                   Tab                ",
     "       Q       ",
     "       W       ",
     "       E       ",
@@ -267,7 +267,7 @@ keys_row2 = [
 ]
 
 keys_row3 = [
-    "         Caps_Lock       ",
+    "          Caps_Lock       ",
     "       A       ",
     "       S       ",
     "       D       ",
@@ -283,7 +283,7 @@ keys_row3 = [
 ]
 
 keys_row4 = [
-    "                     Shift_L                   ",
+    "                       Shift_L                    ",
     "       Z       ",
     "       X       ",
     "       C       ",
@@ -294,19 +294,19 @@ keys_row4 = [
     "       ,       ",
     "       .       ",
     "       /       ",
-    "                   Shift_R                  ",
+    "                    Shift_R                   ",
 ]
 
 keys_row5 = [
-    "    Control_L     ",
+    "      Control_L      ",
     "       Win_L     ",
-    "       Alt_L     ",
-    "                                                                     Space                                                                     ",
-    "       Alt_R     ",
-    "   Left   ",
+    "     Alt_L       ",
+    "                                                                         Space                                                                         ",
+    "     Alt_R       ",
+    "  Left  ",
     "   Up   ",
-    "   Down   ",
-    "   Right   ",
+    "Down",
+    "Right",
 ]
 
 
@@ -319,7 +319,8 @@ for key in keys_row1:
         relief=RAISED,
         padx=5,
         height=5,
-        font=("Helvetica", 10, "bold"),
+        font=("Rubik Bold", 10),
+        bg="#c4c1b9",
         takefocus=0
     )
     btn.pack(side="left")
@@ -332,7 +333,8 @@ for key in keys_row2:
         relief=RAISED,
         padx=5,
         height=5,
-        font=("Helvetica", 10, "bold"),
+        font=("Rubik Bold", 10),
+        bg="#c4c1b9",
         takefocus=0
     )
     btn.pack(side="left")
@@ -345,7 +347,8 @@ for key in keys_row3:
         relief=RAISED,
         padx=5,
         height=5,
-        font=("Helvetica", 10, "bold"),
+        font=("Rubik Bold", 10),
+        bg="#c4c1b9",
         takefocus=0
     )
     btn.pack(side="left")
@@ -358,7 +361,8 @@ for key in keys_row4:
         relief=RAISED,
         padx=5,
         height=5,
-        font=("Helvetica", 10, "bold"),
+        font=("Rubik Bold", 10),
+        bg="#c4c1b9",
         takefocus=0
     )
     btn.pack(side="left")
@@ -371,13 +375,15 @@ for key in keys_row5:
         relief=RAISED,
         padx=5,
         height=5,
-        font=("Helvetica", 10, "bold"),
+        font=("Rubik Bold", 10),
+        bg="#c4c1b9",
         takefocus=0
     )
     btn.pack(side="left")
 
 app.bind("<Key>", key_press)
 app.bind("<KeyRelease>", key_release)
+app.resizable(False,False)
 # if name is main start point
 if __name__ == "__main__":
     app.mainloop()
