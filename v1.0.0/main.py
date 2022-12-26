@@ -44,7 +44,12 @@ ctypes.windll.shcore.SetProcessDpiAwareness(True)
 
 # Makes frame that acts as a 'case' for the key to be displayed in
 keyboardCase = Frame(
-    master=app, borderwidth=40, bg="#050505", height=500, width=1000, relief=GROOVE
+    master=app, 
+    borderwidth=40, 
+    bg="#050505", 
+    height=500, 
+    width=1000, 
+    relief=GROOVE
 )
 keyboardCase.pack(pady=250)
 
