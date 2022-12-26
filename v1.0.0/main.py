@@ -4,7 +4,6 @@ import tkthread
 tkthread.patch()
 from tkinter import *
 import ctypes
-import threading
 
 
 # Define a function to be called when a key is pressed
