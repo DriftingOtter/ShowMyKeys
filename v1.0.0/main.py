@@ -132,7 +132,24 @@ def key_release(event):
 
         if isinstance(btn, Button):
 
-            btn["relief"] = "raised"
+            if ((str(btn["text"])).strip() == event.char) or (
+                (str(btn["text"])).strip() == event.keysym
+            ):
+
+                btn["relief"] = "raised"
+
+            else:
+
+                pass
+
+            if ((str((btn["text"])).lower()).strip() == event.char) or (
+                (str((btn["text"])).lower()).strip() == event.keysym
+            ):
+
+                btn["relief"] = "raised"
+            else:
+
+                pass
 
         else:
 
@@ -142,8 +159,25 @@ def key_release(event):
 
         if isinstance(btn, Button):
 
-            btn["relief"] = "raised"
+            if ((str(btn["text"])).strip() == event.char) or (
+                (str(btn["text"])).strip() == event.keysym
+            ):
 
+                btn["relief"] = "raised"
+
+            else:
+
+                pass
+
+            if ((str((btn["text"])).lower()).strip() == event.char) or (
+                (str((btn["text"])).lower()).strip() == event.keysym
+            ):
+
+                btn["relief"] = "raised"
+            else:
+
+                pass
+            
         else:
 
             pass
@@ -152,8 +186,25 @@ def key_release(event):
 
         if isinstance(btn, Button):
 
-            btn["relief"] = "raised"
+            if ((str(btn["text"])).strip() == event.char) or (
+                (str(btn["text"])).strip() == event.keysym
+            ):
 
+                btn["relief"] = "raised"
+
+            else:
+
+                pass
+
+            if ((str((btn["text"])).lower()).strip() == event.char) or (
+                (str((btn["text"])).lower()).strip() == event.keysym
+            ):
+
+                btn["relief"] = "raised"
+            else:
+
+                pass
+            
         else:
 
             pass
@@ -162,8 +213,25 @@ def key_release(event):
 
         if isinstance(btn, Button):
 
-            btn["relief"] = "raised"
+            if ((str(btn["text"])).strip() == event.char) or (
+                (str(btn["text"])).strip() == event.keysym
+            ):
 
+                btn["relief"] = "raised"
+
+            else:
+
+                pass
+
+            if ((str((btn["text"])).lower()).strip() == event.char) or (
+                (str((btn["text"])).lower()).strip() == event.keysym
+            ):
+
+                btn["relief"] = "raised"
+            else:
+
+                pass
+            
         else:
 
             pass
@@ -172,8 +240,25 @@ def key_release(event):
 
         if isinstance(btn, Button):
 
-            btn["relief"] = "raised"
+            if ((str(btn["text"])).strip() == event.char) or (
+                (str(btn["text"])).strip() == event.keysym
+            ):
 
+                btn["relief"] = "raised"
+
+            else:
+
+                pass
+
+            if ((str((btn["text"])).lower()).strip() == event.char) or (
+                (str((btn["text"])).lower()).strip() == event.keysym
+            ):
+
+                btn["relief"] = "raised"
+            else:
+
+                pass
+            
         else:
 
             pass
