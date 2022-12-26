@@ -35,7 +35,7 @@ to tie the key press and key release functions to the key press and key release 
 # Version: 1.0.0
 # Summary: A Customizable and Clean Keyboard Input Displayer.
 # Home-page: N/A
-# Author: Ott6r
+# Author: DriftingOtter
 # Author-email: dakshkaul7790@gmail.com
-# License: N/A
+# License: GNU General Public License v3.0
 # ------------------------------------------------------------------------------#
