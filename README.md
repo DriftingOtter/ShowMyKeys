@@ -24,19 +24,33 @@ to tie the key press and key release functions to the key press and key release 
 
 ### Dependencies ⚙️
 
-* tkthread
 * tkinter
 * ctypes
+* Rubik (font family)
 
 ### Installing 📂
 
-* download .ZIP file
-* extract file in your disered location
+In CMD (Command Prompt) enter these commands. They will install all dependences that are required for the software to work.
+
+```
+pip install tkinter
+```
+
+```
+pip install ctypes
+```
+
+Go to the link and download the font family.
+
+https://fonts.google.com/specimen/Rubik?query=Rubik
+
+* Download __.ZIP__ file
+* Extract file in your desired location
+* install all fonts
 
 ### Executing program 👟
 
-* Simply run the included main.py
-
+* Finally, run the __.exe__ for the software !
 
 ## Authors 👤
 
