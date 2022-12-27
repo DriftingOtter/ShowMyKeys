@@ -38,10 +38,10 @@ def find_button_by_text(key):
 app = Tk()
 app.geometry("1920x1080")
 app.title("ShowMyKeys")
-app.config(background="#9ea3af")
+app.config(background="#212529")
 
 # Gives application an icon
-appIcon = PhotoImage(file="v1.0.0/ShowMyKeys_Icon.png")
+appIcon = PhotoImage(file="Staging Version\ShowMyKeys_Icon.png")
 app.iconphoto(True, appIcon)
 
 # Allows Application To Render Based Upon Users Display DPI
