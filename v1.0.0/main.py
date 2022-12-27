@@ -3,41 +3,23 @@ from tkinter import *
 from pynput import *
 import ctypes
 
-def on_press(key):
-    # Find the button with the same text as the key pressed
-    if hasattr(key, "char"):
-        button = find_button_by_text(str(key.char))
-    else:
-        # If it's a special key, print the key name
-        button = find_button_by_text(str(key.name))
-    
+def on_key_press(key):
+    button = find_button_by_text(key)
     if button:
-        # Change the relief of the button to 'sunken'
         button.configure(relief='sunken')
 
-def on_release(key):
-     # Find the button with the same text as the key pressed
-    if hasattr(key, "char"):
-        button = find_button_by_text(str(key.char))
-    else:
-        # If it's a special key, print the key name
-        button = find_button_by_text(str(key.name))
-
+def on_key_release(key):
+    button = find_button_by_text(key)
     if button:
-        # Change the relief of the button to 'raised'
         button.configure(relief='raised')
 
-def find_button_by_text(text):
+def find_button_by_text(key):
+    text = str(key.char) if hasattr(key, "char") else str(key.name)
     for row in rows:
-        # Find all buttons in the row
-        buttons = row.children.values()
-        # Find the button with the matching text
-        for button in buttons:
-            if ((str(button.cget('text'))).strip()).lower() == text:
+        for button in row.children.values():
+            if button.cget('text').strip().lower() == text:
                 return button
-    # Return None if no button was found
     return None
-
 # Tkinter Boiler Plate
 app = Tk()
 app.geometry("1920x1080")
@@ -198,7 +180,7 @@ for i in range(len(keys)):
         btn.pack(side="left")
 
 # Create a keyboard listener
-listener = keyboard.Listener(on_press=on_press, on_release=on_release)
+listener = keyboard.Listener(on_press=on_key_press, on_release=on_key_release)
 # Start threading
 listener.start()
 
