@@ -30,16 +30,6 @@ to tie the key press and key release functions to the key press and key release 
 
 ### Installing 📂
 
-In CMD (Command Prompt) enter these commands. They will install all dependences that are required for the software to work.
-
-```
-pip install tkinter
-```
-
-```
-pip install ctypes
-```
-
 Go to the link and download the font family.
 
 https://fonts.google.com/specimen/Rubik?query=Rubik
@@ -47,6 +37,7 @@ https://fonts.google.com/specimen/Rubik?query=Rubik
 * Download __.ZIP__ file
 * Extract file in your desired location
 * install all fonts
+* dowload __.exe__ for application
 
 ### Executing program 👟
 
