@@ -3,23 +3,37 @@ from tkinter import *
 from pynput import *
 import ctypes
 
+
 def on_key_press(key):
+    # Find the button with the text corresponding to the pressed key
     button = find_button_by_text(key)
+
+    # If the button was found, change its relief to "sunken"
     if button:
-        button.configure(relief='sunken')
+        button.configure(relief="sunken")
+
 
 def on_key_release(key):
+    # Find the button with the text corresponding to the released key
     button = find_button_by_text(key)
+
+    # If the button was found, change its relief to "raised"
     if button:
-        button.configure(relief='raised')
+        button.configure(relief="raised")
+
 
 def find_button_by_text(key):
+    # Get the text of the key press/release
     text = str(key.char) if hasattr(key, "char") else str(key.name)
+
+    # Iterate through all rows and buttons to find the button with the matching text
     for row in rows:
         for button in row.children.values():
-            if button.cget('text').strip().lower() == text:
+            if button.cget("text").strip().lower() == text:
                 return button
     return None
+
+
 # Tkinter Boiler Plate
 app = Tk()
 app.geometry("1920x1080")
@@ -27,57 +41,32 @@ app.title("ShowMyKeys")
 app.config(background="#9ea3af")
 
 # Gives application an icon
-appIcon = PhotoImage(file='v1.0.0/ShowMyKeys_Icon.png') 
-app.iconphoto(True, appIcon) 
+appIcon = PhotoImage(file="v1.0.0/ShowMyKeys_Icon.png")
+app.iconphoto(True, appIcon)
 
 # Allows Application To Render Based Upon Users Display DPI
 ctypes.windll.shcore.SetProcessDpiAwareness(True)
 
 # Makes frame that acts as a 'case' for the key to be displayed in
 keyboardCase = Frame(
-    master=app, 
-    borderwidth=40, 
-    bg="#050505", 
-    height=500, 
-    width=1000, 
-    relief=GROOVE
+    master=app, borderwidth=40, bg="#050505", height=500, width=1000, relief=GROOVE
 )
 keyboardCase.pack(pady=250)
 
 # indivisual rows for key to be placed in
-key_row1 = Frame(
-    master=keyboardCase,
-    width=1000,
-    takefocus=0
-)
+key_row1 = Frame(master=keyboardCase, width=1000, takefocus=0)
 key_row1.pack(side=TOP)
 
-key_row2 = Frame(
-    master=keyboardCase,
-    width=1000,
-    takefocus=0
-)
+key_row2 = Frame(master=keyboardCase, width=1000, takefocus=0)
 key_row2.pack(anchor=CENTER)
 
-key_row3 = Frame(
-    master=keyboardCase,
-    width=1000,
-    takefocus=0
-)
+key_row3 = Frame(master=keyboardCase, width=1000, takefocus=0)
 key_row3.pack(anchor=CENTER)
 
-key_row4 = Frame(
-    master=keyboardCase,
-    width=1000,
-    takefocus=0
-)
+key_row4 = Frame(master=keyboardCase, width=1000, takefocus=0)
 key_row4.pack(anchor=CENTER)
 
-key_row5 = Frame(
-    master=keyboardCase,
-    width=1000,
-    takefocus=0
-)
+key_row5 = Frame(master=keyboardCase, width=1000, takefocus=0)
 key_row5.pack(side=BOTTOM)
 
 
@@ -128,7 +117,7 @@ keys_row3 = [
     "       K       ",
     "       L       ",
     "       ;       ",
-    '''       '       ''',
+    """       '       """,
     "               Enter              ",
 ]
 
@@ -175,7 +164,7 @@ for i in range(len(keys)):
             height=4,
             font=("Rubik Bold", 10),
             bg="#c4c1b9",
-            takefocus=0
+            takefocus=0,
         )
         btn.pack(side="left")
 
@@ -185,9 +174,8 @@ listener = keyboard.Listener(on_press=on_key_press, on_release=on_key_release)
 listener.start()
 
 # Disables resizing of window
-app.resizable(False,False)
+app.resizable(False, False)
 
 # if name is main start point
 if __name__ == "__main__":
     app.mainloop()
-    
