@@ -41,7 +41,7 @@ app.title("ShowMyKeys")
 app.config(background="#212529")
 
 # Gives application an icon
-appIcon = PhotoImage(file="Staging Version\ShowMyKeys_Icon.png")
+appIcon = PhotoImage(file="V1.5.0/ShowMyKeys_Icon.png")
 app.iconphoto(True, appIcon)
 
 # Allows Application To Render Based Upon Users Display DPI
