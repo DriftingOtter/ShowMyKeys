@@ -1,36 +1,42 @@
 # Imports
 from tkinter import *
+from pynput import *
 import ctypes
 
-# Define a function to be called when a key is pressed
-def key_press(event):
-    def update_button_relief(button):
-        if ((str(button["text"])).strip() == event.char) or (
-            (str(button["text"])).strip() == event.keysym
-        ) or ((str((button["text"])).lower()).strip() == event.char) or (
-            (str((button["text"])).lower()).strip() == event.keysym
-        ):
-            button["relief"] = "sunken"
+def on_press(key):
+    # Find the button with the same text as the key pressed
+    if hasattr(key, "char"):
+        button = find_button_by_text(str(key.char))
+    else:
+        # If it's a special key, print the key name
+        button = find_button_by_text(str(key.name))
+    
+    if button:
+        # Change the relief of the button to 'sunken'
+        button.configure(relief='sunken')
 
-    for row in [key_row1, key_row2, key_row3, key_row4, key_row5]:
-        for btn in row.winfo_children():
-            if isinstance(btn, Button):
-                update_button_relief(btn)
+def on_release(key):
+     # Find the button with the same text as the key pressed
+    if hasattr(key, "char"):
+        button = find_button_by_text(str(key.char))
+    else:
+        # If it's a special key, print the key name
+        button = find_button_by_text(str(key.name))
 
-# Define a function to be called when a key is released
-def key_release(event):
-    def update_button_relief(button):
-        if ((str(button["text"])).strip() == event.char) or (
-            (str(button["text"])).strip() == event.keysym
-        ) or ((str((button["text"])).lower()).strip() == event.char) or (
-            (str((button["text"])).lower()).strip() == event.keysym
-        ):
-            button["relief"] = "raised"
+    if button:
+        # Change the relief of the button to 'raised'
+        button.configure(relief='raised')
 
-    for row in [key_row1, key_row2, key_row3, key_row4, key_row5]:
-        for btn in row.winfo_children():
-            if isinstance(btn, Button):
-                update_button_relief(btn)
+def find_button_by_text(text):
+    for row in rows:
+        # Find all buttons in the row
+        buttons = row.children.values()
+        # Find the button with the matching text
+        for button in buttons:
+            if ((str(button.cget('text'))).strip()).lower() == text:
+                return button
+    # Return None if no button was found
+    return None
 
 # Tkinter Boiler Plate
 app = Tk()
@@ -108,11 +114,11 @@ keys_row1 = [
     "       0       ",
     "       -       ",
     "       =       ",
-    "         BackSpace          ",
+    "          BackSpace          ",
 ]
 
 keys_row2 = [
-    "                   Tab                ",
+    "                    Tab                ",
     "       Q       ",
     "       W       ",
     "       E       ",
@@ -129,7 +135,7 @@ keys_row2 = [
 ]
 
 keys_row3 = [
-    "          Caps_Lock       ",
+    "            Caps_Lock           ",
     "       A       ",
     "       S       ",
     "       D       ",
@@ -140,12 +146,12 @@ keys_row3 = [
     "       K       ",
     "       L       ",
     "       ;       ",
-    '       "       ',
-    "               Return               ",
+    '''       '       ''',
+    "               Enter              ",
 ]
 
 keys_row4 = [
-    "                       Shift_L                    ",
+    "                           Shift                       ",
     "       Z       ",
     "       X       ",
     "       C       ",
@@ -160,11 +166,11 @@ keys_row4 = [
 ]
 
 keys_row5 = [
-    "      Control_L      ",
-    "       Win_L     ",
+    "          Ctrl_L         ",
+    "       CMD     ",
     "     Alt_L       ",
-    "                                                                         Space                                                                         ",
-    "     Alt_R       ",
+    "                                                                            Space                                                                            ",
+    "     Alt_Gr      ",
     "  Left  ",
     "   Up   ",
     "Down",
@@ -191,14 +197,15 @@ for i in range(len(keys)):
         )
         btn.pack(side="left")
 
-# Binds key_press and key_release to window of application
-app.bind("<Key>", key_press)
-app.bind("<KeyRelease>", key_release)
+# Create a keyboard listener
+listener = keyboard.Listener(on_press=on_press, on_release=on_release)
+# Start threading
+listener.start()
 
 # Disables resizing of window
 app.resizable(False,False)
 
-
 # if name is main start point
 if __name__ == "__main__":
     app.mainloop()
+    
