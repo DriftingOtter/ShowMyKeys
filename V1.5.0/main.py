@@ -1,6 +1,6 @@
 # Imports
 from tkinter import *
-from pynput import *
+from pynput import keyboard
 import ctypes
 
 
