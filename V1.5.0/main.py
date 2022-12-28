@@ -38,7 +38,7 @@ def find_button_by_text(key):
 app = Tk()
 app.geometry("1920x1080")
 app.title("ShowMyKeys")
-app.config(background="#212529")
+app.config(background="#222831")
 
 # Gives application an icon
 appIcon = PhotoImage(file="V1.5.0/ShowMyKeys_Icon.png")
@@ -49,7 +49,7 @@ ctypes.windll.shcore.SetProcessDpiAwareness(True)
 
 # Makes frame that acts as a 'case' for the key to be displayed in
 keyboardCase = Frame(
-    master=app, borderwidth=40, bg="#050505", height=500, width=1000, relief=GROOVE
+    master=app, borderwidth=40, bg="#789395", height=500, width=1000, relief=GROOVE
 )
 keyboardCase.pack(pady=250)
 
@@ -163,7 +163,7 @@ for i in range(len(keys)):
             padx=5,
             height=4,
             font=("Rubik Bold", 10),
-            bg="#c4c1b9",
+            bg="#EEEEEE",
             takefocus=0,
         )
         btn.pack(side="left")
