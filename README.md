@@ -1,25 +1,15 @@
 ![ShowMyKeys Logo](https://github.com/DriftingOtter/ShowMyKeys/blob/master/V1.5.0/ShowMyKeys_Icon.png)
 # ShowMyKeys
 
-A Customizable and Clean Keyboard Input Displayer.
+*A Fast And Simple Keyboard Visualizer.*
 
 ## Description 📜
 
-This Python application uses the Tkinter package to produce a graphical user interface (GUI). 
-The GUI shows a keyboard layout and indicates the user's current key presses. 
-To do this, it binds functions to key press and key release events using the keyboard library.
-
-key_press and key_release are two functions that will be called when a key is pushed or released, respectively. 
-The programme starts by importing the required libraries. 
-The key press function loops over every Tkinter window's child to determine whether any of them are buttons. 
-If they do, it determines if the button's text corresponds to the character of the 
-key press event and, if it does, modifies the button's look to show that it is being pushed. 
-Similar to this, the key release method loops over each button and changes how they seem to show that 
-they are not being pushed.
-
-The software then builds a grid of frames, inserts them into the Tkinter window, and configures the keyboard layout. 
-After that, it makes lists of the important labels and buttons for each list. Finally, it uses the keyboard library 
-to tie the key press and key release functions to the key press and key release events.
+__ShowMyKeys__ creates a graphical keyboard using Tkinter and pynput modules, allowing you to 
+visualize your keyboard presses in real-time. 
+The GUI updates to show when a key is pressed or released, giving you a visual 
+representation of your typing, this can be useful for learning to touch type 
+or for streamers wanting to display their speedy combos to their viewers.
 
 ## Getting Started ✅
 
@@ -39,7 +29,7 @@ https://fonts.google.com/specimen/Rubik?query=Rubik
 * Download __.ZIP__ file
 * Extract file in your desired location
 * install all fonts
-* dowload __.exe__ for application
+* then, dowload __.exe__ for the application
 
 ### Executing program 👟
 
