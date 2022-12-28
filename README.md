@@ -1,4 +1,5 @@
-# ShowMyKeys ⌨️
+# ![ShowMyKeys Logo](https://github.com/DriftingOtter/ShowMyKeys/blob/master/V1.5.0/ShowMyKeys_Icon.png)
+# ShowMyKeys
 
 A Customizable and Clean Keyboard Input Displayer.
 
