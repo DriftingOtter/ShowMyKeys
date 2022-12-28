@@ -24,8 +24,8 @@ to tie the key press and key release functions to the key press and key release 
 
 ### Dependencies ⚙️
 
-* tkthread
 * tkinter
+* pynput
 * ctypes
 
 ### Installing 📂
