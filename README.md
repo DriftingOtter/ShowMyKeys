@@ -26,6 +26,7 @@ to tie the key press and key release functions to the key press and key release 
 ### Dependencies ⚙️
 
 * tkinter
+* pynput
 * ctypes
 * Rubik (font family)
 
