@@ -40,10 +40,6 @@ app.geometry("1920x1080")
 app.title("ShowMyKeys")
 app.config(background="#222831")
 
-# Gives application an icon
-appIcon = PhotoImage(file="V1.5.0/ShowMyKeys_Icon.png")
-app.iconphoto(True, appIcon)
-
 # Allows Application To Render Based Upon Users Display DPI
 ctypes.windll.shcore.SetProcessDpiAwareness(True)
 
