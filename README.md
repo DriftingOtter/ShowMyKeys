@@ -43,7 +43,7 @@ This project is licensed under the *GNU General Public License v3.0* License - s
 ## Disclaimers 🚨
 
 As the code is still in __VERY__ early devlopment, if there is any issues with the code that raise a false positive in game anti-cheat engines.
-I or anyone related to this project is not responsible.
+I or anyone related to this project is __not__ responsible.
 
 ## Acknowledgments 📣
 
