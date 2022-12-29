@@ -78,11 +78,14 @@ app.config(background="#222831")
 # Allows Application To Render Based Upon Users Display DPI
 ctypes.windll.shcore.SetProcessDpiAwareness(True)
 
+# Disables resizing of window
+app.resizable(False, False)
+
 # Makes frame that acts as a 'case' for the key to be displayed in
 keyboardCase = Frame(
     master=app, borderwidth=40, bg="#789395", height=500, width=1000, relief=GROOVE
 )
-keyboardCase.pack(pady=250)
+keyboardCase.pack(anchor=CENTER, pady=250)
 
 # indivisual rows for key to be placed in
 key_row1 = Frame(master=keyboardCase, width=1000, takefocus=0)
@@ -204,9 +207,6 @@ listener = keyboard.Listener(on_press=on_key_press, on_release=on_key_release)
 # Start threading
 listener.start()
 
-
-# Disables resizing of window
-app.resizable(False, False)
 
 # if name is main start point
 if __name__ == "__main__":
