@@ -3,7 +3,37 @@ from tkinter import *
 from pynput import keyboard
 import ctypes
 
-specialChars = ["!","@","#","$","%","^","&","*","(",")"]
+specialChar_mapping: str = {
+    "~": "`",
+    "!": "1",
+    "@": "2",
+    "#": "3",
+    "$": "4",
+    "%": "5",
+    "^": "6",
+    "&": "7",
+    "*": "8",
+    "(": "9",
+    ")": "0",
+    "_": "-",
+    "+": "=",
+    "{": "[",
+    "}": "]",
+    "|": "\\",
+    ":": ";",
+    '''"''': "'",
+    "<": ",",
+    ">": ".",
+    "?": "/",
+}
+
+def refactorSpecialChar(text):
+
+    global specialChar_mapping
+
+    # Look up the corresponding character in the char_mapping dictionary
+    # If the text is not in the mapping, use the original text
+    return specialChar_mapping.get(text, text)
 
 def on_key_press(key):
     # Find the button with the text corresponding to the pressed key
@@ -28,18 +58,8 @@ def find_button_by_text(key):
     # Get the text of the key press/release
     text = str(key.char) if hasattr(key, "char") else str(key.name)
 
-    global specialChars
-
-    # If the text is one of the special char
-    if text in specialChars:
-
-        # Returns the corresponding text "1,2,3,4,5,6,7,8,9,0" for each special char
-        text = str(specialChars.index(text)+1)
-
-        # if the index comes back as 10, set the value to 0 for correct execution
-        if text == "10":
-
-            text = str("0")
+    # Checks if the code is in special char list and give acording value to allow for display, else returns original value
+    text = refactorSpecialChar(text)
 
     # Iterate through all rows and buttons to find the button with the matching text
     for row in rows:
