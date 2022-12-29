@@ -1,9 +1,9 @@
 # Imports
-from tkinter import *
+from tkinter import Tk, Button, Frame, RAISED, GROOVE, CENTER, TOP, BOTTOM
 from pynput import keyboard
 import ctypes
 
-specialChar_mapping: str = {
+specialChar_mapping = {
     "~": "`",
     "!": "1",
     "@": "2",
