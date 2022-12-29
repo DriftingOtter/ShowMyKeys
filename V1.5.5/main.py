@@ -30,11 +30,13 @@ def find_button_by_text(key):
 
     global specialChars
 
-    # If the text is one of 
+    # If the text is one of the special char
     if text in specialChars:
-        # Return the button with the corresponding text "1,2,3,4,5,6,7,8,9,0"
+
+        # Returns the corresponding text "1,2,3,4,5,6,7,8,9,0" for each special char
         text = str(specialChars.index(text)+1)
 
+        # if the index comes back as 10, set the value to 0 for correct execution
         if text == "10":
 
             text = str("0")
@@ -181,6 +183,7 @@ for i in range(len(keys)):
 listener = keyboard.Listener(on_press=on_key_press, on_release=on_key_release)
 # Start threading
 listener.start()
+
 
 # Disables resizing of window
 app.resizable(False, False)
