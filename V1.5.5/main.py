@@ -3,6 +3,7 @@ from tkinter import *
 from pynput import keyboard
 import ctypes
 
+specialChars = ["!","@","#","$","%","^","&","*","(",")"]
 
 def on_key_press(key):
     # Find the button with the text corresponding to the pressed key
@@ -23,8 +24,20 @@ def on_key_release(key):
 
 
 def find_button_by_text(key):
+
     # Get the text of the key press/release
     text = str(key.char) if hasattr(key, "char") else str(key.name)
+
+    global specialChars
+
+    # If the text is one of 
+    if text in specialChars:
+        # Return the button with the corresponding text "1,2,3,4,5,6,7,8,9,0"
+        text = str(specialChars.index(text)+1)
+
+        if text == "10":
+
+            text = str("0")
 
     # Iterate through all rows and buttons to find the button with the matching text
     for row in rows:
