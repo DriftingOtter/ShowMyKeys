@@ -19,14 +19,10 @@ or for streamers wanting to display their speedy combos to their viewers.
 
 ### Installing 📂
 
-Go to the link and download the font family.
-
-https://fonts.google.com/specimen/Rubik?query=Rubik
-
-* Download __.ZIP__ file
-* Extract file in your desired location
-* install all fonts
-* then, dowload __.exe__ for the application
+* Go to the releases section of this repo
+* Download the font that comes with latest release __(REQUIRED)__
+* Install the font
+* Then, dowload __.exe__ for the application
 
 ### Executing program 👟
 
