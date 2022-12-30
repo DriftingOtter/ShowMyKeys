@@ -1,5 +1,5 @@
 # Imports
-from tkinter import Tk, Button, Frame, RAISED, GROOVE, CENTER, TOP, BOTTOM
+from tkinter import *
 from pynput import keyboard
 import ctypes
 
