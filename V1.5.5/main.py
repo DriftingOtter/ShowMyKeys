@@ -25,7 +25,34 @@ specialChar_mapping = {
     "<": ",",
     ">": ".",
     "?": "/",
+    "A": "a",
+    "B": "b",
+    "C": "c",
+    "D": "d",
+    "E": "e",
+    "F": "f",
+    "G": "g",
+    "H": "h",
+    "I": "i",
+    "J": "j",
+    "K": "k",
+    "L": "l",
+    "M": "m",
+    "N": "n",
+    "O": "o",
+    "P": "p",
+    "Q": "q",
+    "R": "r",
+    "S": "s",
+    "T": "t",
+    "U": "u",
+    "V": "v",
+    "W": "w",
+    "X": "x",
+    "Y": "y",
+    "Z": "z",
 }
+
 
 def refactorSpecialChar(text):
 
@@ -34,6 +61,7 @@ def refactorSpecialChar(text):
     # Look up the corresponding character in the char_mapping dictionary
     # If the text is not in the mapping, use the original text
     return specialChar_mapping.get(text, text)
+
 
 def on_key_press(key):
     # Find the button with the text corresponding to the pressed key
@@ -59,7 +87,10 @@ def find_button_by_text(key):
     text = str(key.char) if hasattr(key, "char") else str(key.name)
 
     # Checks if the code is in special char list and give acording value to allow for display, else returns original value
-    text = refactorSpecialChar(text)
+    if text in specialChar_mapping:
+        text = refactorSpecialChar(text)
+    else:
+        pass
 
     # Iterate through all rows and buttons to find the button with the matching text
     for row in rows:
@@ -68,6 +99,7 @@ def find_button_by_text(key):
                 return button
     return None
 
+
 # 'On Close' logic for mainloop
 def win_onClose():
 
@@ -75,6 +107,7 @@ def win_onClose():
 
     listener.stop()
     app.destroy()
+
 
 # Tkinter Boiler Plate
 app = Tk()
@@ -214,6 +247,7 @@ listener = keyboard.Listener(on_press=on_key_press, on_release=on_key_release)
 # Start threading
 listener.start()
 
+# Calls 'on_close' logic func on window closing
 app.protocol("WM_DELETE_WINDOW", win_onClose)
 
 # if name is main start point
