@@ -68,6 +68,13 @@ def find_button_by_text(key):
                 return button
     return None
 
+# 'On Close' logic for mainloop
+def win_onClose():
+
+    global listener, app
+
+    listener.stop()
+    app.destroy()
 
 # Tkinter Boiler Plate
 app = Tk()
@@ -207,6 +214,7 @@ listener = keyboard.Listener(on_press=on_key_press, on_release=on_key_release)
 # Start threading
 listener.start()
 
+app.protocol("WM_DELETE_WINDOW", win_onClose)
 
 # if name is main start point
 if __name__ == "__main__":
