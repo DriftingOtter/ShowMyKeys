@@ -2,6 +2,7 @@
 from tkinter import *
 from pynput import keyboard
 import ctypes
+#import cfgMenu
 
 specialChar_mapping = {
     "~": "`",
@@ -113,7 +114,7 @@ def win_onClose():
 app = Tk()
 app.geometry("1920x1080")
 app.title("ShowMyKeys")
-app.config(background="#222831")
+app.config(background="#2F2831")
 
 # Allows Application To Render Based Upon Users Display DPI
 ctypes.windll.shcore.SetProcessDpiAwareness(True)
