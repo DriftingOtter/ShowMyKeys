@@ -16,4 +16,4 @@
 
 * Finally, the code sets up the keyboard event listener using the keyboard library from pynput. It specifies the functions to call when a key press or key release event is detected, and starts the event listener.
 
-With this, the application is set up and ready to display the graphical keyboard and listen for keyboard events. When a key is pressed or released, the corresponding button in the GUI will be updated to reflect the state of the key.
+__With this, the application is set up and ready to display the graphical keyboard and listen for keyboard events. When a key is pressed or released, the corresponding button in the GUI will be updated to reflect the state of the key.__
