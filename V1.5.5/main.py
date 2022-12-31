@@ -241,7 +241,7 @@ for i in range(len(keys)):
             takefocus=0,
         )
         btn.pack(side="left")
-
+        
 # Create a keyboard listener
 listener = keyboard.Listener(on_press=on_key_press, on_release=on_key_release)
 # Start threading
