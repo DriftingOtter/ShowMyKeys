@@ -10,7 +10,7 @@ or for streamers wanting to display their speedy combos to their viewers.
 
 ## Getting Started ✅
 
-__🚨 For Windows __ONLY__ at the moment, compatibility for linux and macOS will come soon... 🚨__
+*🚨 For Windows __ONLY__ at the moment, compatibility for linux and macOS will come soon... 🚨*
 
 ### Dependencies ⚙️
 
