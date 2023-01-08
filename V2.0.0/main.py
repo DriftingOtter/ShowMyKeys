@@ -1,8 +1,27 @@
 # Imports
-from tkinter import *
+from tkinter import (
+    Tk,
+    Frame,
+    Button,
+    RAISED,
+    GROOVE,
+    CENTER,
+    TOP,
+    BOTTOM,
+    RIGHT,
+    S,
+    Toplevel,
+    FLAT,
+    W,
+    LEFT,
+    X,
+    Label,
+)
 from pynput import keyboard
+from tkinter import colorchooser
 import ctypes
-#import cfgMenu
+import threading
+
 
 specialChar_mapping = {
     "~": "`",
@@ -65,12 +84,15 @@ def refactorSpecialChar(text):
 
 
 def on_key_press(key):
+
+    global currentBtnColorHex, highlightColorHex
     # Find the button with the text corresponding to the pressed key
     button = find_button_by_text(key)
 
     # If the button was found, change its relief to "sunken"
     if button:
         button.configure(relief="sunken")
+        button.configure(bg=highlightColorHex)
 
 
 def on_key_release(key):
@@ -80,6 +102,7 @@ def on_key_release(key):
     # If the button was found, change its relief to "raised"
     if button:
         button.configure(relief="raised")
+        button.configure(bg=currentBtnColorHex)
 
 
 def find_button_by_text(key):
@@ -101,7 +124,185 @@ def find_button_by_text(key):
     return None
 
 
-# 'On Close' logic for mainloop
+windowColor = str("#FFFFFF")
+caseColor = str("#FFFFFF")
+keyColor = str("#FFFFFF")
+highlightColor = str("#FFFFFF")
+
+
+def cfgFileCallBack():
+
+    global highlightColorChange, bgColorChange, keyColorChange, caseColorChange, windowColor, caseColor, keyColor, highlightColor, backgroundButton, keyButton, highlightButton, caseButton
+
+    def bgColorChange():
+
+        global windowColor, backgroundButton
+
+        windowColor = colorchooser.askcolor()
+
+        app.configure(bg=windowColor[1])
+
+        backgroundButton.config(bg=windowColor[1])
+
+        # Changes The CFG menu button color to match the background
+        cfgBtn.config(bg=windowColor[1])
+
+        # Tells TK to update changes in main loop
+        app.update_idletasks()
+
+    def caseColorChange():
+
+        global caseColor
+
+        caseColor = colorchooser.askcolor()
+
+        keyboardCase.config(bg=caseColor[1])
+
+        caseButton.config(bg=caseColor[1])
+
+        app.update_idletasks()
+
+    def keyColorChange():
+
+        global keyColor, row, rows
+
+        keyColor = colorchooser.askcolor()
+
+        btn.config(bg=keyColor[1])
+
+        # Iterate through all rows and buttons to add changes in color too
+        for row in rows:
+            for button in row.children.values():
+                button.configure(bg=keyColor[1])
+
+        keyButton.config(bg=keyColor[1])
+
+        app.update_idletasks()
+
+    def highlightColorChange():
+
+        global highlightColor
+
+        highlightColor = colorchooser.askcolor()
+
+        highlightColorHex = highlightColor[1]
+
+        app.update_idletasks()
+
+    root = Toplevel()
+    root.geometry("600x800")
+    root.title("Settings")
+    root.config(bg="#1A1A1A")
+    root.resizable(False, False)
+    root.attributes("-topmost", "true")
+    ctypes.windll.shcore.SetProcessDpiAwareness(True)
+
+    titleFrame = Frame(master=root, width=600, height=100, bg="#1A1A1A")
+    titleFrame.pack(fill=X)
+
+    title = Label(
+        master=titleFrame,
+        font=("Rubik Bold", 40),
+        text="Settings",
+        bg="#1A1A1A",
+        fg="#EEEEEE",
+    )
+    title.pack(side=LEFT, padx=10)
+
+    backgroundFrame = Frame(master=root, width=600, height=100, bg="#1A1A1A")
+    backgroundFrame.pack(fill=X)
+
+    backgroundTitle = Label(
+        master=backgroundFrame,
+        font=("Rubik Bold", 20),
+        text="  Background Color",
+        bg="#1A1A1A",
+        fg="#EEEEEE",
+    )
+    backgroundTitle.pack(side=LEFT, padx=10, pady=30)
+
+    backgroundButton = Button(
+        master=root,
+        command=bgColorChange,
+        width=5,
+        height=2,
+        relief=FLAT,
+        borderwidth=5,
+        bg=windowColor,
+    )
+    backgroundButton.pack(anchor=W, padx=50)
+
+    caseFrame = Frame(master=root, width=600, height=100, bg="#1A1A1A")
+    caseFrame.pack(fill=X)
+
+    caseTitle = Label(
+        master=caseFrame,
+        font=("Rubik Bold", 20),
+        text="  Case Color",
+        bg="#1A1A1A",
+        fg="#EEEEEE",
+    )
+    caseTitle.pack(side=LEFT, padx=10, pady=30)
+
+    caseButton = Button(
+        master=root,
+        command=caseColorChange,
+        width=5,
+        height=2,
+        relief=FLAT,
+        borderwidth=5,
+        bg=caseColor,
+    )
+    caseButton.pack(anchor=W, padx=50)
+
+    keyFrame = Frame(master=root, width=600, height=100, bg="#1A1A1A")
+    keyFrame.pack(fill=X)
+
+    keyTitle = Label(
+        master=keyFrame,
+        font=("Rubik Bold", 20),
+        text="  Keycap Color",
+        bg="#1A1A1A",
+        fg="#EEEEEE",
+    )
+    keyTitle.pack(side=LEFT, padx=10, pady=30)
+
+    keyButton = Button(
+        master=root,
+        command=keyColorChange,
+        width=5,
+        height=2,
+        relief=FLAT,
+        borderwidth=5,
+        bg=keyColor,
+    )
+    keyButton.pack(anchor=W, padx=50)
+
+    highlightFrame = Frame(master=root, width=600, height=100, bg="#1A1A1A")
+    highlightFrame.pack(fill=X)
+
+    highlightTitle = Label(
+        master=highlightFrame,
+        font=("Rubik Bold", 20),
+        text="  Highlight Color",
+        bg="#1A1A1A",
+        fg="#EEEEEE",
+    )
+    highlightTitle.pack(side=LEFT, padx=10, pady=30)
+
+    highlightButton = Button(
+        master=root,
+        command=highlightColorChange,
+        width=5,
+        height=2,
+        relief=FLAT,
+        borderwidth=5,
+        bg=highlightColor,
+    )
+    highlightButton.pack(anchor=W, padx=50)
+
+
+# 'On Close' logic for mainloop window
 def win_onClose():
 
     global listener, app
@@ -243,6 +444,23 @@ for i in range(len(keys)):
         )
         btn.pack(side="left")
 
+# Stores Button Color In Var For Use During Highlight Process
+currentBtnColorHex = btn["bg"]
+highlightColorHex = btn["bg"]
+
+# Creates Button For cfgMenu.py to be called from
+cfgBtn = Button(
+    master=app,
+    font=("Rubik Bold", 30),
+    text="#",
+    command=cfgFileCallBack,
+    fg="#FFFFFF",
+    bg=app["bg"],
+    relief=FLAT,
+    borderwidth=0,
+)
+cfgBtn.pack(side=RIGHT, anchor=S, pady=5, padx=5)
+
 # Create a keyboard listener
 listener = keyboard.Listener(on_press=on_key_press, on_release=on_key_release)
 # Start threading
@@ -251,6 +469,8 @@ listener.start()
 # Calls 'on_close' logic func on window closing
 app.protocol("WM_DELETE_WINDOW", win_onClose)
 
+mainrunner = threading.Thread(target=app.mainloop())
+
 # if name is main start point
 if __name__ == "__main__":
-    app.mainloop()
+    mainrunner.start()
