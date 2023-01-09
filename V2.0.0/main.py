@@ -3,6 +3,10 @@ from tkinter import (
     Tk,
     Frame,
     Button,
+    Toplevel,
+    Label,
+    FLAT,
+    LEFT,
     RAISED,
     GROOVE,
     CENTER,
@@ -10,12 +14,8 @@ from tkinter import (
     BOTTOM,
     RIGHT,
     S,
-    Toplevel,
-    FLAT,
     W,
-    LEFT,
     X,
-    Label,
 )
 from pynput import keyboard
 from tkinter import colorchooser
@@ -459,8 +459,9 @@ cfgBtn = Button(
     command=cfgFileCallBack,
     fg="#FFFFFF",
     bg=app["bg"],
+    activebackground=app["bg"],
     relief=FLAT,
-    borderwidth=0,
+    borderwidth=0
 )
 cfgBtn.pack(side=RIGHT, anchor=S, pady=5, padx=5)
 
