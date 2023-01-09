@@ -132,7 +132,8 @@ highlightColor = str("#FFFFFF")
 
 def cfgFileCallBack():
 
-    global highlightColorChange, bgColorChange, keyColorChange, caseColorChange, windowColor, caseColor, keyColor, highlightColor, backgroundButton, keyButton, highlightButton, caseButton
+    global highlightColorChange, bgColorChange, keyColorChange, caseColorChange
+    global windowColor, caseColor, keyColor, highlightColor, backgroundButton, keyButton, highlightButton, caseButton
 
     def bgColorChange():
 
@@ -152,7 +153,7 @@ def cfgFileCallBack():
 
     def caseColorChange():
 
-        global caseColor
+        global caseColor, caseButton
 
         caseColor = colorchooser.askcolor()
 
@@ -164,7 +165,7 @@ def cfgFileCallBack():
 
     def keyColorChange():
 
-        global keyColor, row, rows
+        global keyColor, keyButton, row, rows, btn
 
         keyColor = colorchooser.askcolor()
 
@@ -181,11 +182,13 @@ def cfgFileCallBack():
 
     def highlightColorChange():
 
-        global highlightColor
+        global highlightColor, highlightColorHex, highlightButton
 
         highlightColor = colorchooser.askcolor()
 
         highlightColorHex = highlightColor[1]
+
+        highlightButton.config(bg=highlightColor[1])
 
         app.update_idletasks()
 
