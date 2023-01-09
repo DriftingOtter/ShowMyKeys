@@ -1,4 +1,4 @@
-![Logo That States "ShowMyKeys"](https://github.com/DriftingOtter/ShowMyKeys/blob/master/ShowMyKeys_Banner_Image.png)
+![Logo That States "ShowMyKeys"](https://github.com/DriftingOtter/ShowMyKeys/blob/master/ShowMyKeys_Banner_UPDATED.png)
 
 ## Description 📜
 
@@ -9,6 +9,8 @@ representation of your typing, this can be useful for learning to touch type
 or for streamers wanting to display their speedy combos to their viewers.
 
 ## Getting Started ✅
+
+*🚨 For Windows __ONLY__ at the moment, compatibility for linux and macOS will come soon... 🚨*
 
 ### Dependencies ⚙️
 
