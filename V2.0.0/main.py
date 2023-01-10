@@ -169,6 +169,8 @@ def cfgFileCallBack():
 
         keyColor = colorchooser.askcolor()
 
+        currentBtnColorHex = keyColor[1]
+
         btn.config(bg=keyColor[1])
 
         # Iterate through all rows and buttons to add changes in color too
