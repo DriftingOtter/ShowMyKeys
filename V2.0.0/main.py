@@ -442,7 +442,7 @@ for i in range(len(keys)):
             border=10,
             relief=RAISED,
             padx=5,
-            height=4,
+            height=3,
             font=("Rubik Bold", 10),
             bg="#EEEEEE",
             takefocus=0,
