@@ -10,13 +10,13 @@ or for streamers wanting to display their speedy combos to their viewers.
 
 ## Getting Started ✅
 
-*🚨 For Windows __ONLY__ at the moment, compatibility for linux and macOS will come soon... 🚨*
+*🚨 For Windows and Linux __ONLY__ at the moment, compatibility for macOS will come soon... 🚨*
 
 ### Dependencies ⚙️
 
 * tkinter
 * pynput
-* ctypes
+* ctypes (for windows ver.)
 * Rubik (font family)
 
 ### Installing 📂
@@ -32,7 +32,7 @@ or for streamers wanting to display their speedy combos to their viewers.
 
 ## Authors 👤
 
-DriftingOtter (aka. me 😉 )
+DriftingOtter // Daksh Kaul (aka. me 😉 )
 
 ## License ⚖️
 
