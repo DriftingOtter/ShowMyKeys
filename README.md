@@ -1,4 +1,4 @@
-![Logo That States "ShowMyKeys"](https://github.com/DriftingOtter/ShowMyKeys/blob/master/ShowMyKeys_Banner_UPDATED.png)
+![ShowMyKeys Logo](https://github.com/DriftingOtter/ShowMyKeys/blob/master/ShowMyKeys_Banner_UPDATED.png)
 
 ## Description 📜
 
