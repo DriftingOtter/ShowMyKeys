@@ -19,8 +19,12 @@ from tkinter import (
 )
 from pynput import keyboard
 from tkinter import colorchooser
-import ctypes
 import threading
+
+windowColor = str("#FFFFFF")
+caseColor = str("#FFFFFF")
+keyColor = str("#FFFFFF")
+highlightColor = str("#FFFFFF")
 
 
 specialChar_mapping = {
@@ -124,16 +128,13 @@ def find_button_by_text(key):
     return None
 
 
-windowColor = str("#FFFFFF")
-caseColor = str("#FFFFFF")
-keyColor = str("#FFFFFF")
-highlightColor = str("#FFFFFF")
-
-
 def cfgFileCallBack():
 
+
     global highlightColorChange, bgColorChange, keyColorChange, caseColorChange
-    global windowColor, caseColor, keyColor, highlightColor, backgroundButton, keyButton, highlightButton, caseButton
+    global windowColor, caseColor, keyColor, highlightColor, backgroundButton 
+    global keyButton, highlightButton, caseButton, currentBtnColorHex
+
 
     def bgColorChange():
 
@@ -151,6 +152,7 @@ def cfgFileCallBack():
         # Tells TK to update changes in main loop
         app.update_idletasks()
 
+
     def caseColorChange():
 
         global caseColor, caseButton
@@ -163,9 +165,10 @@ def cfgFileCallBack():
 
         app.update_idletasks()
 
+
     def keyColorChange():
 
-        global keyColor, keyButton, row, rows, btn
+        global keyColor, keyButton, row, rows, btn, currentBtnColorHex
 
         keyColor = colorchooser.askcolor()
 
@@ -182,6 +185,7 @@ def cfgFileCallBack():
 
         app.update_idletasks()
 
+
     def highlightColorChange():
 
         global highlightColor, highlightColorHex, highlightButton
@@ -194,13 +198,13 @@ def cfgFileCallBack():
 
         app.update_idletasks()
 
+
     root = Toplevel()
-    root.geometry("600x800")
+    root.geometry("500x500")
     root.title("Settings")
     root.config(bg="#1A1A1A")
-    root.resizable(False, False)
+    root.resizable(True, True)
     root.attributes("-topmost", "true")
-    ctypes.windll.shcore.SetProcessDpiAwareness(True)
 
     titleFrame = Frame(master=root, width=600, height=100, bg="#1A1A1A")
     titleFrame.pack(fill=X)
@@ -321,9 +325,6 @@ app = Tk()
 app.geometry("1920x1080")
 app.title("ShowMyKeys")
 app.config(background="#2F2831")
-
-# Allows Application To Render Based Upon Users Display DPI
-ctypes.windll.shcore.SetProcessDpiAwareness(True)
 
 # Disables resizing of window
 app.resizable(False, False)
