@@ -16,15 +16,16 @@ from tkinter import (
     S,
     W,
     X,
+    messagebox,
 )
+
+
+# Other Imports
 from pynput import keyboard
 from tkinter import colorchooser
 import threading
-
-windowColor = str("#FFFFFF")
-caseColor = str("#FFFFFF")
-keyColor = str("#FFFFFF")
-highlightColor = str("#FFFFFF")
+import yaml
+import sys
 
 
 specialChar_mapping = {
@@ -76,6 +77,32 @@ specialChar_mapping = {
     "Y": "y",
     "Z": "z",
 }
+
+# Keyboard Color & Config Variable Intermediate Storage
+windowColor = str()
+caseColor = str()
+keyColor = str()
+highlightColor = str()
+
+# YAML Config Loader
+def load_KBD_config():
+    
+    global windowColor, caseColor, keyColor, highlightColor
+
+
+    # Check if the YAML file exists
+    try:
+        with open('kbdConfig.yaml', 'r') as file:
+            config_data = yaml.safe_load(file)
+
+    except FileNotFoundError:
+        messagebox.showerror("Error", "KBD Config File Not Found !")
+
+    # Get the color values from the config_data dictionary
+    caseColor = config_data.get('caseColor')
+    keyColor = config_data.get('keyColor')
+    windowColor = config_data.get('windowColor')
+    highlightColor = config_data.get('highlightColor')
 
 
 def refactorSpecialChar(text):
@@ -142,12 +169,37 @@ def cfgFileCallBack():
 
         windowColor = colorchooser.askcolor()
 
+
+        # Check if the YAML file exists
+        try:
+            with open('kbdConfig.yaml', 'r') as file:
+                config_data = yaml.safe_load(file)
+
+        except FileNotFoundError:
+            messagebox.showerror("Error", "KBD Config File Not Found !")
+
+
+        # Stores change in YAML config file
+        config_data['windowColor'] = windowColor[1] 
+        
+
+        # Write the updated YAML data back to the file
+        with open('kbdConfig.yaml', 'w') as file:
+            yaml.dump(config_data, file)
+
+
+        # Updates BG value
         app.configure(bg=windowColor[1])
+
 
         backgroundButton.config(bg=windowColor[1])
 
+
         # Changes The CFG menu button color to match the background
         cfgBtn.config(bg=windowColor[1])
+
+        # Reload The All Config Values Form YAML file
+        load_KBD_config()
 
         # Tells TK to update changes in main loop
         app.update_idletasks()
@@ -159,9 +211,32 @@ def cfgFileCallBack():
 
         caseColor = colorchooser.askcolor()
 
+
+        # Check if the YAML file exists
+        try:
+            with open('kbdConfig.yaml', 'r') as file:
+                config_data = yaml.safe_load(file)
+
+        except FileNotFoundError:
+            messagebox.showerror("Error", "KBD Config File Not Found !")
+
+        
+        # Stores change in YAML config file
+        config_data['caseColor'] = caseColor[1] 
+        
+
+        # Write the updated YAML data back to the file
+        with open('kbdConfig.yaml', 'w') as file:
+            yaml.dump(config_data, file)
+
+
         keyboardCase.config(bg=caseColor[1])
 
         caseButton.config(bg=caseColor[1])
+
+        
+        # Reload The All Config Values Form YAML file
+        load_KBD_config()
 
         app.update_idletasks()
 
@@ -171,6 +246,25 @@ def cfgFileCallBack():
         global keyColor, keyButton, row, rows, btn, currentBtnColorHex
 
         keyColor = colorchooser.askcolor()
+ 
+
+        # Check if the YAML file exists
+        try:
+            with open('kbdConfig.yaml', 'r') as file:
+                config_data = yaml.safe_load(file)
+
+        except FileNotFoundError:
+            messagebox.showerror("Error", "KBD Config File Not Found !")
+
+        
+        # Stores change in YAML config file
+        config_data['keyColor'] = keyColor[1] 
+        
+
+        # Write the updated YAML data back to the file
+        with open('kbdConfig.yaml', 'w') as file:
+            yaml.dump(config_data, file)
+
 
         currentBtnColorHex = keyColor[1]
 
@@ -183,6 +277,10 @@ def cfgFileCallBack():
 
         keyButton.config(bg=keyColor[1])
 
+        
+        # Reload The All Config Values Form YAML file
+        load_KBD_config()
+
         app.update_idletasks()
 
 
@@ -192,9 +290,32 @@ def cfgFileCallBack():
 
         highlightColor = colorchooser.askcolor()
 
+        
+        # Check if the YAML file exists
+        try:
+            with open('kbdConfig.yaml', 'r') as file:
+                config_data = yaml.safe_load(file)
+
+        except FileNotFoundError:
+            messagebox.showerror("Error", "KBD Config File Not Found !")
+
+        
+        # Stores change in YAML config file
+        config_data['highlightColor'] = highlightColor[1] 
+        
+
+        # Write the updated YAML data back to the file
+        with open('kbdConfig.yaml', 'w') as file:
+            yaml.dump(config_data, file)
+
+
         highlightColorHex = highlightColor[1]
 
         highlightButton.config(bg=highlightColor[1])
+
+        
+        # Reload The All Config Values Form YAML file
+        load_KBD_config()
 
         app.update_idletasks()
 
@@ -324,14 +445,21 @@ def win_onClose():
 app = Tk()
 app.geometry("1920x1080")
 app.title("ShowMyKeys")
-app.config(background="#2F2831")
+
+# Loads Keyboard Customization Values
+try:
+    load_KBD_config()
+except FileNotFoundError:
+    sys.exit(1)
+
+app.config(background=windowColor)
 
 # Disables resizing of window
 app.resizable(False, False)
 
 # Makes frame that acts as a 'case' for the key to be displayed in
 keyboardCase = Frame(
-    master=app, borderwidth=40, bg="#789395", height=500, width=1000, relief=GROOVE
+    master=app, borderwidth=40, bg=caseColor, height=500, width=1000, relief=GROOVE
 )
 keyboardCase.pack(anchor=CENTER, pady=250)
 
@@ -445,14 +573,14 @@ for i in range(len(keys)):
             padx=5,
             height=3,
             font=("Rubik Bold", 10),
-            bg="#EEEEEE",
+            bg=keyColor,
             takefocus=0,
         )
         btn.pack(side="left")
 
 # Stores Button Color In Var For Use During Highlight Process
-currentBtnColorHex = btn["bg"]
-highlightColorHex = btn["bg"]
+currentBtnColorHex = keyColor
+highlightColorHex = highlightColor
 
 # Creates Button For cfgMenu.py to be called from
 cfgBtn = Button(
