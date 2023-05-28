@@ -10,9 +10,9 @@
 
 # ------------------------------------------------------------------------------#
 # Name: ShowMyKeys
-# Version: 1.5.5
+# Version: 2.0.0
 # Summary: A Customizable and Clean Keyboard Input Displayer.
-# Home-page: N/A
+# Home-page: solo.to/shameful
 # Author: DriftingOtter
 # Author-email: dakshkaul7790@gmail.com
 # License: GNU General Public License v3.0
