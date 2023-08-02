@@ -141,7 +141,8 @@ def find_button_by_text(key):
     # Get the text of the key press/release
     text = str(key.char) if hasattr(key, "char") else str(key.name)
 
-    # Checks if the code is in special char list and give acording value to allow for display, else returns original value
+    # Checks if the code is in special char list and give acording value to 
+    # allow for display, else returns original value
     if text in specialChar_mapping:
         text = refactorSpecialChar(text)
     else:
