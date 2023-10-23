@@ -1,0 +1,59 @@
+[project]
+name = "ShowMyKeys"
+
+version = "1.5.5"
+
+description = "ShowMyKeys creates a graphical keyboard using Tkinter and pynput modules, allowing you to visualize your keyboard presses in real-time. The GUI updates to show when a key is pressed or released, giving you a visual representation of your typing, this can be useful for learning to touch type or for streamers wanting to display their speedy combos to their viewers."
+
+readme = "README.md"
+
+requires-python = ">=3.11"
+
+license = {file = "LICENSE.md"}
+
+keywords = ["sample", "setuptools", "development"]
+
+authors = [
+  {name = "Daksh Kaul", email = "dakshkaul7790@gmail.com" }
+]
+
+maintainers = [
+  {name = "Daksh Kaul", email = "dakshkaul7790@gmail.com" }
+]
+
+classifiers = [
+  "Development Status :: Beta",
+
+  "Intended Audience :: Instructors",
+  "Topic :: GUI Applications :: Graphical Keyboard Input Visualizer",
+
+  "License :: OSI Approved :: GPL-3.0 license",
+
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3 :: Only",
+]
+
+dependencies = [
+  "tkinter",
+  "pynput",
+  "threading",
+  "yaml",
+  "sys",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/DriftingOtter/ShowMyKeys"
+"Bug Reports" = "https://github.com/DriftingOtter/ShowMyKeys/issues"
+"Funding" = "https://kofi.com/driftingotter"
+
+[tool.setuptools]
+package-data = {"sample" = ["*.dat"]}
+
+[build-system]
+requires = ["setuptools>=43.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+

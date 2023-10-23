@@ -1,16 +1,14 @@
-![ShowMyKeys Logo](https://github.com/DriftingOtter/ShowMyKeys/blob/master/ShowMyKeys_Banner_CURRENT.png)
+![ShowMyKeys Logo](./assets/ShowMyKeys_Banner_2.png)
 
 ## Description 📜
 
-__ShowMyKeys__ creates a graphical keyboard using Tkinter and pynput modules, allowing you to 
+__ShowMyKeys__ creates a graphical keyboard using **Tkinter** and **pynput** modules, allowing you to 
 visualize your keyboard presses in real-time. 
 The GUI updates to show when a key is pressed or released, giving you a visual 
 representation of your typing, this can be useful for learning to touch type 
 or for streamers wanting to display their speedy combos to their viewers.
 
 ## Getting Started ✅
-
-*🚨 For Windows and Linux __ONLY__ at the moment, compatibility for macOS will come soon... 🚨*
 
 ### Dependencies ⚙️
 
